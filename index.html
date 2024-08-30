@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Curve Webpage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <svg class="curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 3000" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="line-gradient" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#4B0082" />
+          <stop offset="100%" stop-color="#8A2BE2" />
+        </linearGradient>
+      </defs>
+      <path class="curve-path" d="M100,0 C100,500 1100,500 1100,1000 C1100,1500 100,1500 100,2000 C100,2500 1100,2500 1100,3000" />
+    </svg>
+
+    <!-- Glowing Circles on the Curve -->
+    <div class="circles">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+      <div class="circle circle-4"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

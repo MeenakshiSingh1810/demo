@@ -1,0 +1,142 @@
+/* Basic Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 3000px; /* Adjust based on the length of the curve */
+}
+
+.curve {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.curve-path {
+  fill: none;
+  stroke: url(#line-gradient); /* Gradient stroke */
+  stroke-width: 20; /* Thinner curve */
+  stroke-dasharray: 5000;
+  stroke-dashoffset: 5000;
+  filter: drop-shadow(0 0 15px rgba(0, 0, 255, 0.5)); /* Glow effect */
+  transition: stroke-dashoffset 0.1s ease-out; /* Smooth transition */
+}
+
+.circles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50%, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0.2)); /* Blue gradient */
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.8); /* Glow effect */
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.circle.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Position circles along the curve with alternating sides */
+.circle-1 {
+  top: 10%;
+  left: 15%;
+}
+
+.circle-2 {
+  top: 40%;
+  right: 15%;
+}
+
+.circle-3 {
+  top: 70%;
+  left: 15%;
+}
+
+.circle-4 {
+  top: 90%;
+  right: 15%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .curve-path {
+    stroke-width: 15px; /* Thinner curve on small screens */
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .circle-1, .circle-2, .circle-3, .circle-4 {
+    /* Adjust positions for smaller screens */
+    top: auto;
+    bottom: 10px;
+  }
+
+  .circle-1 {
+    left: 10%;
+  }
+
+  .circle-2 {
+    right: 10%;
+  }
+
+  .circle-3 {
+    left: 10%;
+  }
+
+  .circle-4 {
+    right: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .curve-path {
+    stroke-width: 10px; /* Even thinner curve on very small screens */
+  }
+
+  .circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .circle-1, .circle-2, .circle-3, .circle-4 {
+    /* Adjust positions for very small screens */
+    bottom: 10px;
+  }
+
+  .circle-1 {
+    left: 5%;
+  }
+
+  .circle-2 {
+    right: 5%;
+  }
+
+  .circle-3 {
+    left: 5%;
+  }
+
+  .circle-4 {
+    right: 5%;
+  }
+}
